@@ -30,7 +30,6 @@ const addTeamMember = async() => {
     } else {
         // Exit the application and create the team.html file
         return;
-        console.log("! Created team.html file based on what you chose to display in it!")
     }
     // Call again to allow adding more team members
     addTeamMember();
@@ -124,5 +123,5 @@ if (!fs.existsSync(OUTPUT_DIR)) {
 }
 // Start the application
 startApplication()
-    .then(() => console.log('Your team is displayed!'))
-    .catch((err) => console.error(err));
+    .then(() => setTimeout(() => console.log('Your team is displayed!'), 1000)) // Delay execution
+    .catch((err) => console.error('Error in startApplication:', err));
